@@ -1,5 +1,6 @@
 pixelsContainerJs = document.querySelector(".pixelsConteiner");
 
+const gridContainer = 500;
 let gridPixelSize = 10;
 
 const individualRow = document.createElement("div");
@@ -10,14 +11,14 @@ function generateGrid(gridSize){
         const row = document.createElement("div");
         row.style.display = "flex";
         pixelsContainerJs.appendChild(row);
-        for (j = 0; j < gridPixelSize - 1; j++) {
-          const column = document.createElement("div");
-          row.appendChild(column);
-          column.style.width = "10px";
-          column.style.height = "10px";
-          column.style.marginLeft = "2px";
-          column.style.marginTop = "2px";
-          column.style.background = "white";
+        for (j = 0; j < gridPixelSize; j++) {
+          const cell = document.createElement("div");
+          row.appendChild(cell);
+          cell.style.width = `${(gridContainer/gridPixelSize)}px`;
+          cell.style.height = `${(gridContainer/gridPixelSize)}px`;
+          cell.style.border = "1px solid white";
+          cell.style.display = "flex";
+          cell.style.background = "red";
       }
     }
 }
