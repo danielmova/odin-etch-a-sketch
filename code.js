@@ -3,6 +3,8 @@ pixelsContainerJs = document.querySelector(".pixelsConteiner");
 const gridContainer = 350;
 let gridPixelSize = 16;
 
+let pixelColor = "#ff0000";
+
 const individualRow = document.createElement("div");
 const individualColumn = document.createElement("div");
 
@@ -19,12 +21,26 @@ function generateGrid(gridSize){
           cell.style.height = `${(gridContainer/gridPixelSize -2)}px`;
           cell.style.border = "1px solid grey";
           cell.style.background = "white";
-          cell.addEventListener("mouseenter", (event) => {cell.style.background ="blue"});
+          let pixelColorOpacity = 0;
+          cell.addEventListener("mouseenter", (event) => {
+            
+            pixelColorOpacity = pixelColorOpacity + 0.1;
+            cell.style.background = getRandomColor(); 
+            cell.style.opacity = pixelColorOpacity});
       }
     }
 }
 
 generateGrid(gridPixelSize);
+
+function getRandomColor() {
+  var letters = '0123456789ABCDEF';
+  var color = '#';
+  for (var i = 0; i < 6; i++) {
+    color += letters[Math.floor(Math.random() * 16)];
+  }
+  return color;
+}
 
 function changeGridPixelSize(){
   var answer = prompt("Enter a number between 1 and 100:");
