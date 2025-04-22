@@ -20,7 +20,7 @@ function generateGrid(gridSize){
           cell.style.width = `${(gridContainer/gridPixelSize-2)}px`;
           cell.style.height = `${(gridContainer/gridPixelSize -2)}px`;
           cell.style.border = "1px solid grey";
-          cell.style.background = "white";
+          cell.style.background = "black";
           let pixelColorOpacity = 0;
           cell.addEventListener("mouseenter", (event) => {
             
